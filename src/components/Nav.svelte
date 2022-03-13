@@ -46,6 +46,9 @@
   a {
     text-decoration: none;
     font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Victor Mono', monospace;
   }
   .wrapper {
     display: flex;
@@ -78,7 +81,10 @@
   .light {
     color: var(--svelte-orange);
   }
-  a:hover {
+  a.dark:hover,
+  a.dark:focus,
+  a.light:hover,
+  a.light:focus {
     color: var(--svelte-orange);
   }
 </style>
