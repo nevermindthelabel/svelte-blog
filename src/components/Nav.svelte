@@ -2,11 +2,26 @@
   export let toggleTheme;
   export let currentTheme;
   import Icons from '../assets/svg/icons.svelte';
-  $: console.log(currentTheme);
+  import { isActive, url } from '@roxi/routify';
+  const theRoutes = [
+    { path: './', name: 'home' },
+    { path: './uses', name: 'uses' },
+    { path: './blog', name: 'blog' }
+  ];
 </script>
 
 <div class="wrapper">
-  <div class={currentTheme}>routes go here</div>
+  <div class={currentTheme}>
+    <ul class="pages">
+      {#each theRoutes as route}
+        <li>
+          <a class="link" class:active={$isActive(route.path)} href={$url(route.path)}>
+            {route.name}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
   <button class="theme-toggle" on:click={toggleTheme}
     >{#if currentTheme === 'light'}
       <Icons theClass="dark-mode-btn" name="darkMode" width="20px" height="20px" fill="#000" />
@@ -17,6 +32,18 @@
 </div>
 
 <style>
+  ul {
+    list-style-type: none;
+    display: flex;
+  }
+  li {
+    margin: 0.5em;
+  }
+
+  li a {
+    text-decoration: none;
+    color: currentColor;
+  }
   .wrapper {
     display: flex;
     padding: 15px;
