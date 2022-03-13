@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let toggleTheme;
   export let currentTheme;
   import Icons from '../assets/svg/icons.svelte';
