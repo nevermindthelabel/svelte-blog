@@ -198,6 +198,11 @@ progress {
 [aria-disabled='true'] {
   cursor: default;
 }
+
+:root {
+  --transition: background-color 0.75s ease;
+}
+
 header,
 main {
   position: relative;
@@ -234,7 +239,7 @@ footer {
 
 @media (min-width: 1024px) {
   footer {
-    background-image: url('./src/assets/downtown_sabdlo_c_scale\,w_1368.webp');
+    background-image: url('./src/assets/downtown_1368.webp');
   }
 }
 
@@ -243,7 +248,7 @@ main.light,
 header.light {
   background: #fff;
   color: #2b2e31;
-  transition: background-color 0.5s ease;
+  transition: var(--transition);
 }
 
 body.dark,
@@ -251,7 +256,7 @@ main.dark,
 header.dark {
   background: #2b2e31;
   color: #fff;
-  transition: background-color 0.5s ease;
+  transition: var(--transition);
 }
 
 @media (prefers-color-scheme: dark) {
