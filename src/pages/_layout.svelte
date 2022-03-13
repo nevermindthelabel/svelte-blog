@@ -78,6 +78,10 @@
 </body>
 
 <style>
+  @import 'victormono';
+  :global(p) {
+    font-family: 'Victor Mono', monospace;
+  }
   :global(header),
   :global(main) {
     position: relative;
