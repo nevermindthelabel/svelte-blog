@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let toggleTheme;
-  export let currentTheme;
+  export let toggleTheme: svelte.JSX.MouseEventHandler<HTMLButtonElement>;
+  export let currentTheme: string;
   import Icons from '../assets/svg/icons.svelte';
   import { isActive, url } from '@roxi/routify';
   const theRoutes = [
