@@ -251,16 +251,16 @@ footer {
 body.light,
 main.light,
 header.light {
-  background: #fff;
-  color: #2b2e31;
+  background: var(--light-mode-bg);
+  color: var(--light-mode-text);
   transition: var(--transition);
 }
 
 body.dark,
 main.dark,
 header.dark {
-  background: #121212;
-  color: #fff;
+  background: var(--dark-mode-bg);
+  color: var(--dark-mode-text);
   transition: var(--transition);
 }
 
