@@ -15,7 +15,7 @@
     <ul class="pages">
       {#each theRoutes as route}
         <li>
-          <a class="link" class:active={$isActive(route.path)} href={$url(route.path)}>
+          <a class="{$isActive(route.path) ? 'active' : ''} {currentTheme}" href={$url(route.path)}>
             {route.name}
           </a>
         </li>
@@ -32,6 +32,9 @@
 </div>
 
 <style>
+  .active {
+    font-weight: 900;
+  }
   ul {
     list-style-type: none;
     display: flex;
@@ -40,9 +43,9 @@
     margin: 0.5em;
   }
 
-  li a {
+  a {
     text-decoration: none;
-    color: currentColor;
+    font-size: 20px;
   }
   .wrapper {
     display: flex;
@@ -54,7 +57,7 @@
   }
   .theme-toggle:focus,
   .theme-toggle:hover {
-    background-color: orange;
+    background-color: var(--svelte-orange);
   }
   .light {
     background: var(--light-mode-bg);
@@ -65,5 +68,17 @@
     background: var(--dark-mode-bg);
     color: var(--dark-mode-text);
     transition: var(--transition);
+  }
+  .light > ul > li > a {
+    color: var(--light-mode-text);
+  }
+  .dark > ul > li > a {
+    color: var(--dark-mode-text);
+  }
+  .light > ul > li > a:hover {
+    color: var(--svelte-orange);
+  }
+  .dark > ul > li > a:hover {
+    color: var(--svelte-orange);
   }
 </style>
