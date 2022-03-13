@@ -72,13 +72,13 @@
   .light > ul > li > a {
     color: var(--light-mode-text);
   }
-  .dark > ul > li > a {
+  .dark {
     color: var(--dark-mode-text);
   }
-  .light > ul > li > a:hover {
+  .light {
     color: var(--svelte-orange);
   }
-  .dark > ul > li > a:hover {
+  a:hover {
     color: var(--svelte-orange);
   }
 </style>
