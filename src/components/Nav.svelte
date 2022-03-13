@@ -57,13 +57,13 @@
     background-color: orange;
   }
   .light {
-    background: #fff;
-    color: #2b2e31;
+    background: var(--light-mode-bg);
+    color: var(--light-mode-text);
     transition: var(--transition);
   }
   .dark {
-    background: #2b2e31;
-    color: #fff;
+    background: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
     transition: var(--transition);
   }
 </style>

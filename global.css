@@ -201,6 +201,11 @@ progress {
 
 :root {
   --transition: background-color 0.75s ease;
+  --dark-mode-bg: #121212;
+  --dark-mode-text: #e8eaed;
+  --light-mode-bg: #ffffff;
+  --light-mode-text: #202124;
+  --svelte-orange: #ff3e00;
 }
 
 header,
@@ -254,7 +259,7 @@ header.light {
 body.dark,
 main.dark,
 header.dark {
-  background: #2b2e31;
+  background: #121212;
   color: #fff;
   transition: var(--transition);
 }
@@ -262,7 +267,7 @@ header.dark {
 @media (prefers-color-scheme: dark) {
   body,
   main {
-    background: #2b2e31;
-    color: #fff;
+    background: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
   }
 }
