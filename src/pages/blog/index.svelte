@@ -10,29 +10,29 @@
   }
   export const load = async () => {
     const posts = await Promise.all(postData);
-    return {
-      posts
-      // props: {
-      //   posts
-      // }
-    };
+    return posts;
   };
 </script>
 
 <script>
   import { onMount } from 'svelte';
-  export let posts;
-  let test;
+  export let posts = [];
   onMount(async () => {
     posts = await load();
   });
-  console.log(posts);
-  console.log(test);
+  $: console.log(posts);
 </script>
 
 <div>
-  <!-- <p>blog</p> -->
-  {JSON.stringify(posts)}
+  <h1>blog</h1>
+  <ul>
+    {#each posts as { path, metadata }}
+      <li>
+        <p>{metadata.title}</p>
+      </li>
+    {/each}
+    <!-- {JSON.stringify(posts)} -->
+  </ul>
 </div>
 
 <style>
