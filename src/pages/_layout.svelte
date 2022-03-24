@@ -103,22 +103,15 @@
   :global(Footer) {
     position: sticky;
     bottom: 0;
-    padding: 15vmin 2rem;
+    /* padding: 15vmin 2rem; */
     background: #2b2e31;
-    background-image: url('./src/assets/downtown_330.webp');
-    background-size: cover;
+    /* background-size: cover;
     background-position: bottom center;
-    background-blend-mode: soft-light;
+    background-blend-mode: soft-light; */
     display: grid;
     place-items: center;
     text-align: center;
     color: #fff;
     font-family: monospace;
-  }
-
-  @media (min-width: 1024px) {
-    footer {
-      background-image: url('./src/assets/downtown_1963.webp');
-    }
   }
 </style>
