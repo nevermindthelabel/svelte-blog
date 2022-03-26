@@ -8,7 +8,6 @@
     { path: './uses', name: 'uses' },
     { path: './blog', name: 'blog' }
   ];
-  theRoutes.map(route => console.log(route.path));
 </script>
 
 <div class="wrapper">
@@ -90,8 +89,5 @@
     color: var(--svelte-orange);
     font-style: italic;
     transition: all 0.5s ease-out;
-  }
-  a:active {
-    color: antiquewhite;
   }
 </style>
