@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   const allPosts = import.meta.glob('./*.{md,svx}');
-  let postData = [];
+  const postData = [];
   for (let path in allPosts) {
     postData.push(
       allPosts[path]().then(({ metadata }) => {
@@ -20,7 +20,6 @@
   onMount(async () => {
     posts = await load();
   });
-  $: console.log(posts);
 </script>
 
 <div>
@@ -31,7 +30,6 @@
         <p>{metadata.title}</p>
       </li>
     {/each}
-    <!-- {JSON.stringify(posts)} -->
   </ul>
 </div>
 
