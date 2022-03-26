@@ -4,10 +4,11 @@
   import Icons from '../assets/svg/icons.svelte';
   import { isActive, url } from '@roxi/routify';
   const theRoutes = [
-    { path: './', name: 'home' },
+    { path: './index', name: 'home' },
     { path: './uses', name: 'uses' },
     { path: './blog', name: 'blog' }
   ];
+  theRoutes.map(route => console.log(route.path));
 </script>
 
 <div class="wrapper">
@@ -34,6 +35,7 @@
 <style>
   .active {
     font-weight: 900;
+    font-style: italic;
   }
   ul {
     list-style-type: none;
@@ -47,8 +49,8 @@
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    font-style: italic;
     font-family: 'Victor Mono', monospace;
+    transition: all 0.5s ease-out;
   }
   .wrapper {
     display: flex;
@@ -86,5 +88,10 @@
   a.light:hover,
   a.light:focus {
     color: var(--svelte-orange);
+    font-style: italic;
+    transition: all 0.5s ease-out;
+  }
+  a:active {
+    color: antiquewhite;
   }
 </style>
