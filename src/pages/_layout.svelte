@@ -63,7 +63,6 @@
   });
 </script>
 
-<!-- <Nav {currentTheme} {toggleTheme} /> -->
 <body class={currentTheme}>
   <header class={currentTheme}>
     <Nav {toggleTheme} {currentTheme} />
@@ -103,11 +102,7 @@
   :global(Footer) {
     position: sticky;
     bottom: 0;
-    /* padding: 15vmin 2rem; */
     background: #2b2e31;
-    /* background-size: cover;
-    background-position: bottom center;
-    background-blend-mode: soft-light; */
     display: grid;
     place-items: center;
     text-align: center;
