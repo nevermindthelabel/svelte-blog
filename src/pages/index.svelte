@@ -1,12 +1,47 @@
+<script context="module" lang="ts">
+  const allPosts = import.meta.glob('./blog/*.{md,svx}');
+  const postData = [];
+  for (let path in allPosts) {
+    postData.push(
+      allPosts[path]().then(({ metadata }) => {
+        return { path, metadata };
+      })
+    );
+  }
+  export const load = async () => {
+    const posts = await (await Promise.all(postData)).splice(0, 3);
+    return posts;
+  };
+</script>
+
 <script lang="ts">
+  import { onMount } from 'svelte';
+  export let posts = [];
+  onMount(async () => {
+    posts = await load();
+  });
 </script>
 
 <div class="container">
-  <div class="intro">
-    <h1 class="greeting">Hi <span>👋</span></h1>
-    <p>I'm Matt, a web developer from Phoenix, Az.</p>
-    <p>I am passionate about my Faith, Family, green grass, web development, mechanical keyboards, and VS Code.</p>
-  </div>
+  <section>
+    <div class="intro">
+      <h1 class="greeting">Hi <span>👋</span></h1>
+      <p>I'm Matt, a web developer from Phoenix, Az.</p>
+      <p>I am passionate about my Faith, Family, green grass, web development, mechanical keyboards, and VS Code.</p>
+    </div>
+  </section>
+  <section>
+    <h2>Latest Posts</h2>
+    <ul>
+      {#each posts as { path, metadata: { title, tags } }}
+        <li>
+          <a href={`${path.replace('.md', '').replace('.svx', '')}`}>{title}</a>
+          <p>{title}</p>
+          <p>{path}</p>
+        </li>
+      {/each}
+    </ul>
+  </section>
 </div>
 
 <style>
