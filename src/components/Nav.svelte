@@ -32,9 +32,11 @@
 </div>
 
 <style>
-  .active {
+  .dark.active,
+  .light.active {
     font-weight: 900;
     font-style: italic;
+    color: var(--svelte-orange);
   }
   ul {
     list-style-type: none;
