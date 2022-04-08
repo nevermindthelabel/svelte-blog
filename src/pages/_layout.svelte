@@ -104,7 +104,7 @@
     bottom: 0;
     background: #2b2e31;
     display: grid;
-    place-items: center;
+    place-items: center center;
     text-align: center;
     color: #fff;
     font-family: monospace;
