@@ -2,6 +2,7 @@
   const allPosts = import.meta.glob('./*.{md,svx}');
   const postData = [];
   for (let path in allPosts) {
+    console.log(path);
     postData.push(
       allPosts[path]().then(({ metadata }) => {
         return { path, metadata };
@@ -20,14 +21,17 @@
   onMount(async () => {
     posts = await load();
   });
+  $: console.log(posts);
 </script>
 
 <div>
   <h1>blog</h1>
   <ul>
-    {#each posts as { path, metadata }}
+    {#each posts as { path, metadata: { title, tags } }}
       <li>
-        <p>{metadata.title}</p>
+        <a href={`/blog/${path.replace('.md', '').replace('.svx', '')}`}>{title}</a>
+        <p>{title}</p>
+        <p>{path}</p>
       </li>
     {/each}
   </ul>
