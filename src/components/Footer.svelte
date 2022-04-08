@@ -11,8 +11,8 @@
       <source media="(max-width: 500px)" type="image/webp" srcset="./src/assets/downtown_480.webp" />
       <source media="(max-width: 1000px)" type="image/avif" srcset="./src/assets/downtown_1368.avif" />
       <source media="(max-width: 1000px)" type="image/webp" srcset="./src/assets/downtown_1368.webp" />
-      <source type="image/avif" srcset="./src/assets/downtown_3024.avif" />
-      <source type="image/webp" srcset="./src/assets/downtown_3024.webp" />
+      <source type="image/avif" srcset="./src/assets/downtown_3024trim.avif" />
+      <source type="image/webp" srcset="./src/assets/downtown_3024trim.webp" />
       <img src="./src/assets/downtown_3024.jpg" alt="thing" />
     </picture>
   </div>
