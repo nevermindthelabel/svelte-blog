@@ -8,6 +8,9 @@
     { path: './uses', name: 'uses' },
     { path: './blog', name: 'blog' }
   ];
+  let isFocused = false;
+  $: mouse = isFocused;
+  // $: console.log(isFocused);
 </script>
 
 <div class="wrapper">
@@ -22,11 +25,16 @@
       {/each}
     </ul>
   </div>
-  <button class="theme-toggle" on:click={toggleTheme}
-    >{#if currentTheme === 'light'}
-      <Icons theClass="dark-mode-btn" name="darkMode" width="20px" height="20px" fill="#000" />
+  <button
+    class="theme-toggle"
+    on:click={toggleTheme}
+    on:mouseenter={e => (isFocused = !isFocused)}
+    on:focus={e => console.log(e)}
+    >menu
+    {#if currentTheme === 'light'}
+      <Icons theClass="dark-mode-btn" name="darkMode" width="20px" height="20px" fill={mouse ? 'limegreen' : '#fff'} />
     {:else}
-      <Icons theClass="light-mode-btn" name="lightMode" width="20px" height="20px" fill="#fff" />
+      <Icons theClass="light-mode-btn" name="lightMode" width="20px" height="20px" fill={mouse ? 'orange' : 'yellow'} />
     {/if}
   </button>
 </div>
@@ -56,15 +64,17 @@
   .wrapper {
     display: flex;
     padding: 15px;
+    background: hsl(0 0 0, 0.1);
+    backdrop-filter: (2rem);
   }
   .theme-toggle {
     text-decoration: none;
     margin-left: auto;
   }
-  .theme-toggle:focus,
+  /* .theme-toggle:focus,
   .theme-toggle:hover {
     background-color: var(--svelte-orange);
-  }
+  } */
   .light {
     background: var(--light-mode-bg);
     color: var(--light-mode-text);
@@ -84,12 +94,26 @@
   .light {
     color: var(--svelte-orange);
   }
-  a.dark:hover,
+  /* a.dark:hover,
   a.dark:focus,
   a.light:hover,
   a.light:focus {
     color: var(--svelte-orange);
     font-style: italic;
     transition: all 0.5s ease-out;
+  } */
+  @media (max-width: 35em) {
+    .wrapper,
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .wrapper {
+      padding: min(30vh, 5rem) 2em;
+      background: var(--dark-mode-bg);
+    }
+    .theme-toggle {
+      margin: 0.5em;
+    }
   }
 </style>
