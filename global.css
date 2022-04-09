@@ -208,11 +208,6 @@ progress {
   --svelte-orange: #ff3e00;
 }
 
-header,
-main {
-  position: relative;
-  z-index: 1;
-}
 main {
   display: flex;
   background: white;
