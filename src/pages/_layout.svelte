@@ -109,4 +109,15 @@
     color: #fff;
     font-family: monospace;
   }
+  @media (max-width: 35em) {
+    header.dark,
+    header.light {
+      z-index: 2;
+      position: fixed;
+      inset: 0 0 0 20%;
+      /* background: rgba(0, 0, 0, 0.65); */
+      background: hsl(0 0 0, 0.1);
+      backdrop-filter: (2rem);
+    }
+  }
 </style>
