@@ -2,10 +2,12 @@
   import { onMount } from 'svelte';
   import Nav from '../components/Nav.svelte';
   import Footer from '../components/Footer.svelte';
+  import Icons from '../assets/svg/icons.svelte';
   const STORAGE_KEY = 'theme';
   const DARK_PREFERENCE = '(prefers-color-scheme: dark)';
   const LIGHT_PREFERENCE = '(prefers-color-scheme: light)';
   let currentTheme;
+  let isExpanded = false;
 
   const THEMES = {
     DARK: 'dark',
@@ -65,7 +67,16 @@
 
 <body class={currentTheme}>
   <header class={currentTheme}>
-    <Nav {toggleTheme} {currentTheme} />
+    <div class="toggle">
+      <button class="mobile" on:click={() => (isExpanded = !isExpanded)}>
+        {#if isExpanded}
+          <Icons theClass="fries" name="fries" width="20px" height="20px" fill={'currentColor'} />
+        {:else}
+          <Icons theClass="burger" name="hamburger" width="20px" height="20px" fill={'#fff'} />
+        {/if}
+      </button>
+    </div>
+    <Nav {toggleTheme} {currentTheme} {isExpanded} />
   </header>
 
   <main class={currentTheme}>
@@ -109,15 +120,23 @@
     color: #fff;
     font-family: monospace;
   }
+  .toggle {
+    display: none;
+  }
   @media (max-width: 35em) {
     header.dark,
     header.light {
       z-index: 2;
       position: fixed;
-      inset: 0 0 0 20%;
-      /* background: rgba(0, 0, 0, 0.65); */
-      background: hsl(0 0 0, 0.1);
-      backdrop-filter: (2rem);
+      inset: 0 0 0 10%;
+      /* display: none; */
+    }
+    .toggle {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
     }
   }
 </style>
