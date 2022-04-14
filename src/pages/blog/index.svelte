@@ -2,7 +2,6 @@
   const allPosts = import.meta.glob('./*.{md,svx}');
   const postData = [];
   for (let path in allPosts) {
-    console.log(path);
     postData.push(
       allPosts[path]().then(({ metadata }) => {
         return { path, metadata };
