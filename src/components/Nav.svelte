@@ -9,12 +9,23 @@
     { path: './blog', name: 'blog' }
   ];
   let isFocused = false;
-  $: mouse = isFocused;
-  // $: console.log(isFocused);
+  function focusDetection(e) {
+    console.log(isFocused);
+  }
+  export let isExpanded = false;
 </script>
 
 <div class="wrapper">
-  <div class={currentTheme}>
+  <!-- <div class="toggle">
+    <button class="mobile" on:click={() => (isExpanded = !isExpanded)}>
+      {#if isExpanded}
+        <Icons theClass="fries" name="fries" width="20px" height="20px" fill={'currentColor'} />
+      {:else}
+        <Icons theClass="burger" name="hamburger" width="20px" height="20px" fill={'#fff'} />
+      {/if}
+    </button>
+  </div> -->
+  <div class="header {currentTheme}">
     <ul class="pages">
       {#each theRoutes as route}
         <li>
@@ -28,13 +39,25 @@
   <button
     class="theme-toggle"
     on:click={toggleTheme}
-    on:mouseenter={e => (isFocused = !isFocused)}
-    on:focus={e => console.log(e)}
+    on:mouseenter={focusDetection}
+    on:mouseleave={() => (isFocused = !isFocused)}
     >menu
     {#if currentTheme === 'light'}
-      <Icons theClass="dark-mode-btn" name="darkMode" width="20px" height="20px" fill={mouse ? 'limegreen' : '#fff'} />
+      <Icons
+        theClass="dark-mode-btn"
+        name="darkMode"
+        width="20px"
+        height="20px"
+        fill={isFocused ? 'limegreen' : '#fff'}
+      />
     {:else}
-      <Icons theClass="light-mode-btn" name="lightMode" width="20px" height="20px" fill={mouse ? 'orange' : 'yellow'} />
+      <Icons
+        theClass="light-mode-btn"
+        name="lightMode"
+        width="20px"
+        height="20px"
+        fill={isFocused ? 'orange' : 'yellow'}
+      />
     {/if}
   </button>
 </div>
@@ -71,10 +94,9 @@
     text-decoration: none;
     margin-left: auto;
   }
-  /* .theme-toggle:focus,
-  .theme-toggle:hover {
-    background-color: var(--svelte-orange);
-  } */
+  .theme-toggle:focus {
+    outline: 2px solid green;
+  }
   .light {
     background: var(--light-mode-bg);
     color: var(--light-mode-text);
@@ -94,23 +116,40 @@
   .light {
     color: var(--svelte-orange);
   }
-  /* a.dark:hover,
+  /* .header {
+    display: none;
+  } */
+  a.dark:hover,
   a.dark:focus,
   a.light:hover,
   a.light:focus {
     color: var(--svelte-orange);
     font-style: italic;
     transition: all 0.5s ease-out;
+  }
+  /* .mobile {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   } */
   @media (max-width: 35em) {
+    .header {
+      display: block;
+    }
     .wrapper,
     ul {
       flex-direction: column;
       align-items: flex-start;
     }
+
+    .dark .wrapper {
+      background: var(--dark-mode-bg);
+    }
+    .light .wrapper {
+      background: var(--light-mode-bg);
+    }
     .wrapper {
       padding: min(30vh, 5rem) 2em;
-      background: var(--dark-mode-bg);
     }
     .theme-toggle {
       margin: 0.5em;
