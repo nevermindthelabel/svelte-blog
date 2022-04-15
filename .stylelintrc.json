@@ -1,7 +1,12 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
   "rules": {
     "selector-class-pattern": "^[A-Za-z-]+$",
-    "selector-id-pattern": "^[A-Za-z-]+$"
+    "selector-id-pattern": "^[A-Za-z-]+$",
+    "string-quotes": "single",
+    "selector-pseudo-class-no-unknown": null
   }
 }
