@@ -66,17 +66,28 @@
 </script>
 
 <body class={currentTheme}>
-  <header class={currentTheme}>
-    <div class="toggle">
-      <button class="mobile" on:click={() => (isExpanded = !isExpanded)}>
-        {#if isExpanded}
-          <Icons theClass="fries" name="fries" width="20px" height="20px" fill={'currentColor'} />
-        {:else}
-          <Icons theClass="burger" name="hamburger" width="20px" height="20px" fill={'#fff'} />
-        {/if}
-      </button>
-    </div>
-    <Nav {toggleTheme} {currentTheme} {isExpanded} />
+  <button class="mobile" on:click={() => (isExpanded = !isExpanded)}>
+    {#if isExpanded}
+      <Icons
+        theClass="fries"
+        name="fries"
+        width="20px"
+        height="20px"
+        fill={currentTheme === 'dark' ? '#fff' : '#000'}
+      />
+    {:else}
+      <Icons
+        theClass="burger"
+        name="hamburger"
+        width="20px"
+        height="20px"
+        fill={currentTheme === 'dark' ? '#fff' : '#000'}
+      />
+    {/if}
+  </button>
+  <header class="{currentTheme} {isExpanded ? 'expand' : 'collapsed'}">
+    <div class="toggle" />
+    <Nav {toggleTheme} {currentTheme} />
   </header>
 
   <main class={currentTheme}>
@@ -120,6 +131,7 @@
     color: #fff;
     font-family: monospace;
   }
+  .mobile,
   .toggle {
     display: none;
   }
@@ -129,9 +141,23 @@
       z-index: 2;
       position: fixed;
       inset: 0 0 0 10%;
-      /* display: none; */
+      transition: all 0.75s ease-in-out;
+    }
+    header.expanded {
+      transform: translateX(0);
+    }
+    header.collapsed {
+      transform: translateX(100%);
     }
     .toggle {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      background-color: pink;
+    }
+    .mobile {
       display: block;
       position: absolute;
       top: 1rem;
