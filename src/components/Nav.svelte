@@ -19,7 +19,11 @@
     <ul class="pages">
       {#each theRoutes as route}
         <li>
-          <a class="{$isActive(route.path) ? 'active' : ''} {currentTheme}" href={$url(route.path)}>
+          <a
+            aria-current={$isActive(route.path) ? 'page' : false}
+            class="{$isActive(route.path) ? 'active' : ''} {currentTheme}"
+            href={$url(route.path)}
+          >
             {route.name}
           </a>
         </li>
