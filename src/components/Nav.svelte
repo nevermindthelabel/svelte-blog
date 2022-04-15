@@ -12,19 +12,9 @@
   function focusDetection(e) {
     console.log(isFocused);
   }
-  export let isExpanded = false;
 </script>
 
 <div class="wrapper">
-  <!-- <div class="toggle">
-    <button class="mobile" on:click={() => (isExpanded = !isExpanded)}>
-      {#if isExpanded}
-        <Icons theClass="fries" name="fries" width="20px" height="20px" fill={'currentColor'} />
-      {:else}
-        <Icons theClass="burger" name="hamburger" width="20px" height="20px" fill={'#fff'} />
-      {/if}
-    </button>
-  </div> -->
   <div class="header {currentTheme}">
     <ul class="pages">
       {#each theRoutes as route}
@@ -116,9 +106,6 @@
   .light {
     color: var(--svelte-orange);
   }
-  /* .header {
-    display: none;
-  } */
   a.dark:hover,
   a.dark:focus,
   a.light:hover,
@@ -127,11 +114,6 @@
     font-style: italic;
     transition: all 0.5s ease-out;
   }
-  /* .mobile {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  } */
   @media (max-width: 35em) {
     .header {
       display: block;
