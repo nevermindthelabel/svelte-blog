@@ -25,8 +25,8 @@
 <div class="container">
   <section>
     <div class="intro">
-      <h1 class="greeting">Hi <span>👋</span></h1>
-      <p>I'm Matt, a web developer from Phoenix, Az.</p>
+      <h1>Matt Kilcup</h1>
+      <p>Hi <span>👋</span> I'm Matt, a web developer from Phoenix, Az.</p>
       <p>I am passionate about my Faith, Family, green grass, web development, mechanical keyboards, and VS Code.</p>
     </div>
   </section>
