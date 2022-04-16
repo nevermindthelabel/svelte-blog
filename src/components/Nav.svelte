@@ -8,7 +8,6 @@
     { path: './uses', name: 'uses' },
     { path: './blog', name: 'blog' }
   ];
-  let isFocused = false;
 </script>
 
 <div class="wrapper">
@@ -69,7 +68,7 @@
 
   .wrapper {
     display: flex;
-    padding: 15px;
+    padding: 30px 40px;
   }
 
   .theme-toggle {
