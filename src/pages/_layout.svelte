@@ -66,7 +66,7 @@
 </script>
 
 <body class={currentTheme}>
-  <button class="mobile" on:click={() => (isExpanded = !isExpanded)}>
+  <button class="mobile" type="button" aria-controls="navbar" on:click={() => (isExpanded = !isExpanded)}>
     {#if isExpanded}
       <Icons
         theClass="fries"
@@ -100,6 +100,7 @@
 
 <style>
   @import 'victormono';
+
   :global(p) {
     font-family: 'Victor Mono', monospace;
   }
