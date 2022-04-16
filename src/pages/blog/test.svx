@@ -1,0 +1,5 @@
+---
+title: thing
+tags: [1, 2, 4]
+---
+# {title}

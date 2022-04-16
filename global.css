@@ -249,6 +249,7 @@ progress {
   --light-mode-bg: #fff;
   --light-mode-text: #202124;
   --svelte-orange: #ff3e00;
+  --blueish: #0042c7;
 }
 
 main {
@@ -283,13 +284,17 @@ header.dark {
   transition: var(--transition);
 }
 
-.theme-toggle {
-  transition: var(--transition);
+.theme-toggle svg path {
+  transition: all 0.5s ease-in-out;
 }
 
 .theme-toggle:focus svg path,
 .theme-toggle:hover svg path {
-  fill: orange;
+  fill: var(--svelte-orange);
+}
+
+.theme-toggle:active svg path {
+  fill: initial;
 }
 
 @media (prefers-color-scheme: dark) {
