@@ -1,68 +1,82 @@
 html {
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   box-sizing: border-box;
-  -moz-tab-size: 4;
   tab-size: 4;
   word-break: normal;
 }
+
 *,
-:after,
-:before {
+::after,
+::before {
   background-repeat: no-repeat;
   box-sizing: inherit;
 }
-:after,
-:before {
+
+::after,
+::before {
   text-decoration: inherit;
   vertical-align: inherit;
 }
+
 * {
   margin: 0;
   padding: 0;
 }
+
 hr {
   color: inherit;
   height: 0;
   overflow: visible;
 }
+
 details,
 main {
   display: block;
 }
+
 summary {
   display: list-item;
 }
+
 small {
   font-size: 80%;
 }
+
 [hidden] {
   display: none;
 }
+
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   text-decoration: underline dotted;
 }
+
 a {
   background-color: transparent;
 }
+
 a:active,
 a:hover {
   outline-width: 0;
 }
+
 code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
 }
+
 pre {
   font-size: 1em;
 }
+
 b,
 strong {
   font-weight: bolder;
 }
+
 sub,
 sup {
   font-size: 75%;
@@ -70,37 +84,47 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
+
 sub {
   bottom: -0.25em;
 }
+
 sup {
   top: -0.5em;
 }
+
 table {
   border-color: inherit;
   text-indent: 0;
 }
+
 iframe {
   border-style: none;
 }
+
 input {
   border-radius: 0;
 }
+
 [type='number']::-webkit-inner-spin-button,
 [type='number']::-webkit-outer-spin-button {
   height: auto;
 }
+
 [type='search'] {
-  -webkit-appearance: textfield;
+  appearance: textfield;
   outline-offset: -2px;
 }
+
 [type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
+
 textarea {
   overflow: auto;
   resize: vertical;
 }
+
 button,
 input,
 optgroup,
@@ -108,16 +132,20 @@ select,
 textarea {
   font: inherit;
 }
+
 optgroup {
   font-weight: 700;
 }
+
 button {
   overflow: visible;
 }
+
 button,
 select {
   text-transform: none;
 }
+
 [role='button'],
 [type='button'],
 [type='reset'],
@@ -125,6 +153,7 @@ select {
 button {
   cursor: pointer;
 }
+
 [type='button']::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner,
@@ -132,18 +161,14 @@ button::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner,
-button:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
+
 [type='reset'],
 [type='submit'],
 button,
 html [type='button'] {
-  -webkit-appearance: button;
+  appearance: button;
 }
+
 button,
 input,
 select,
@@ -151,6 +176,18 @@ textarea {
   background-color: transparent;
   border-style: none;
 }
+
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner,
+button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+select {
+  appearance: none;
+}
+
 a:focus,
 button:focus,
 input:focus,
@@ -158,16 +195,15 @@ select:focus,
 textarea:focus {
   outline-width: 0;
 }
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
+
 select::-ms-expand {
   display: none;
 }
+
 select::-ms-value {
-  color: currentColor;
+  color: currentcolor;
 }
+
 legend {
   border: 0;
   color: inherit;
@@ -175,26 +211,33 @@ legend {
   max-width: 100%;
   white-space: normal;
 }
+
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
+  appearance: button;
   color: inherit;
   font: inherit;
 }
+
 [disabled] {
   cursor: default;
 }
+
 img {
   border-style: none;
 }
+
 progress {
   vertical-align: baseline;
 }
+
 [aria-busy='true'] {
   cursor: progress;
 }
+
 [aria-controls] {
   cursor: pointer;
 }
+
 [aria-disabled='true'] {
   cursor: default;
 }
@@ -203,7 +246,7 @@ progress {
   --transition: background-color 0.75s ease;
   --dark-mode-bg: #121212;
   --dark-mode-text: #e8eaed;
-  --light-mode-bg: #ffffff;
+  --light-mode-bg: #fff;
   --light-mode-text: #202124;
   --svelte-orange: #ff3e00;
 }
@@ -215,6 +258,7 @@ main {
   min-height: 100vh;
   padding: 0 1em;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -237,6 +281,15 @@ header.dark {
   background: var(--dark-mode-bg);
   color: var(--dark-mode-text);
   transition: var(--transition);
+}
+
+.theme-toggle {
+  transition: var(--transition);
+}
+
+.theme-toggle:focus svg path,
+.theme-toggle:hover svg path {
+  fill: orange;
 }
 
 @media (prefers-color-scheme: dark) {
