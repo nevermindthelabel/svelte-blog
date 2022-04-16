@@ -27,12 +27,17 @@
       {/each}
     </ul>
   </div>
-  <button type="button" class="theme-toggle" aria-pressed="false" on:click={toggleTheme}
-    >menu
+  <button
+    type="button"
+    class="theme-toggle"
+    aria-pressed="false"
+    title="switch {currentTheme === 'light' ? 'to dark' : 'to light'} mode"
+    on:click={toggleTheme}
+  >
     {#if currentTheme === 'light'}
-      <Icons theClass="dark-mode-btn" name="darkMode" width="20px" height="20px" fill={'#000'} />
+      <Icons theClass="dark-mode-btn" name="darkMode" width="30px" height="30px" fill={'#000'} />
     {:else}
-      <Icons theClass="light-mode-btn" name="lightMode" width="20px" height="20px" fill={'#fff'} />
+      <Icons theClass="light-mode-btn" name="lightMode" width="30px" height="30px" fill={'#fff'} />
     {/if}
   </button>
 </div>
