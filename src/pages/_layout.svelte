@@ -114,7 +114,9 @@
     background: white;
     justify-content: center;
     min-height: 100vh;
-    padding: 0 1em;
+    padding: 15px 1em;
+    max-width: 700px;
+    margin: auto;
   }
   :global(body) {
     display: flex;
@@ -122,6 +124,7 @@
     min-height: 100vh;
     width: 100%;
   }
+
   :global(Footer) {
     position: sticky;
     bottom: 0;
