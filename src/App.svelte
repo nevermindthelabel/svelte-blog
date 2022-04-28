@@ -4,7 +4,3 @@
 </script>
 
 <Router {routes} />
-
-<style>
-  @import 'https://unpkg.com/open-props';
-</style>
